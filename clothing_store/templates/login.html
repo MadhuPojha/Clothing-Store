@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
-{% block title %}Form{% endblock %}
 
+{% block title %}Login{% endblock %}
+                                            
 {% block content %}
     <h1>Login</h1>
     <form action="{% url 'login' %}" method="POST">
@@ -14,4 +15,8 @@
         <br>
         <input type="submit" class="btn btn-primary" value="Login">
     </form>
+{% if form.errors %}
+    <p>Invalid login credentials</p>
+{% endif %}
+
 {% endblock %}
