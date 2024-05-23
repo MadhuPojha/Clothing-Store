@@ -12,3 +12,8 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render(request, 'user_app/index.html')
 
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))
+
