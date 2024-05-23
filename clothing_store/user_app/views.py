@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
-    return render(request, 'user_app/index.html')
+    return render(request, 'index.html')
 
 @login_required
 def user_logout(request):
@@ -46,7 +46,7 @@ def register(request):
         user_form = UserForm()
         profile_form = UserProfileInfoForm()
 
-    return render(request, 'user_app/register.html',
+    return render(request, 'register.html',
                           {'user_form': user_form,
                            'profile_form': profile_form,
                            'registered': registered})
@@ -69,4 +69,4 @@ def user_login(request):
             print("Username: {} and password: {}".format(username, password))
             return HttpResponse("Invalid login details supplied")
     else:
-        return render(request, 'user_app/login.html', {})
+        return render(request, 'login.html', {})
