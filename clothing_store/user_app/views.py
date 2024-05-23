@@ -13,7 +13,7 @@ def index(request):
     return render(request, 'index.html')
 
 @login_required
-def user_logout(request):
+def logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 
@@ -51,7 +51,7 @@ def register(request):
                            'profile_form': profile_form,
                            'registered': registered})
 
-def user_login(request):
+def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
