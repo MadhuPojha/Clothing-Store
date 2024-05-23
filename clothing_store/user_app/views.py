@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from user_app.forms import UserForm, UserProfileInfoForm
 
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, logout as auth_logout, login as auth_login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 #from django.core.urlresolvers import reverse
@@ -14,7 +14,7 @@ def index(request):
 
 @login_required
 def logout(request):
-    logout(request)
+    auth_logout(request)
     return HttpResponseRedirect(reverse('index'))
 
 def register(request):
@@ -60,7 +60,7 @@ def login(request):
 
         if user:
             if user.is_active:
-                login(request, user)
+                auth_login(request, user)
                 return HttpResponseRedirect(reverse('index'))
             else:
                 return HttpResponse("Account not active")

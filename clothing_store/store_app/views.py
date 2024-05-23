@@ -4,12 +4,9 @@ from datetime import datetime
 
 # Create your views here.
 
-def index(request):
+def home(request):
     current_year = datetime.now().year
     return render(request, 'index.html', {'current_year': current_year})
-
-def login(request):
-    return render(request, "login.html", {'login': login})
 
 def product(request):
     product = Product.objects.all()
