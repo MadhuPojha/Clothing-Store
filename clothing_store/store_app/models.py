@@ -4,6 +4,26 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
+# Product Caterory Model
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+    description=models.TextField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+# Order Detail Model
+class Order_Details(models.Model):
+    
+    order=models.ForeignKey(Orders,on_delete=models.CASCADE)
+    product=models.ForeignKey(Product,on_delete=models.CASCADE)
+    quantity=models.PositiveIntegerField()
+    price=models.DecimalField(max_digits=6,decimal_places=2)
+
+    def __str__(self):
+        return self.order
+
+
 class Product(models.Model):
     name = models.CharField(max_length=100)
     category = models.ForeignKey(on_delete=models.CASCADE) #need to add Product_Category model
@@ -45,5 +65,6 @@ class CartItem(models.Model):
 
     def __str__(self):
         return f"Quantity: {self.quatity} _ Product Name: {self.product.name}"
+
 
 
