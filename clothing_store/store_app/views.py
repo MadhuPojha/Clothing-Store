@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from store_app import Product, Product_Stock, Category
+from store_app.models import Product, Product_Stock, Category
 from datetime import datetime
 
 # Create your views here.
@@ -9,7 +9,7 @@ def index(request):
     return render(request, 'index.html', {'current_year': current_year})
 
 def login(request):
-    return render(request, "login.html" {'login': login}))
+    return render(request, "login.html", {'login': login})
 
 def product(request):
     product = Product.objects.all()
