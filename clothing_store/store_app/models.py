@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+
+
 class Product(models.Model):
     name = models.CharField(max_length=100)
     category = models.ForeignKey(on_delete=models.CASCADE) #need to add Product_Category model
@@ -10,6 +12,16 @@ class Product(models.Model):
     
     def __str__(self):
         return f"Category {self.category} Product: {self.name} | Price: {self.price}"
+      
+class Product_Stock(models.Model):      #product_info 
+    
+    product = models.ForeignKey(Product, on_delete=models.CASCADE) 
+    size = models.CharField(max_length=100)
+    color = models.CharField(max_length=100)
+    stock = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"Product: {self.Product.product} Size: {self.size} Color:{self.color} Stock:{self.stock}"
     
 class ProductImages(models.Model):
     image = models.FileField(upload_to='products_images', blank=True)
