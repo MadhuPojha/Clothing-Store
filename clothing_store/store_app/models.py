@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
-    category = models.ForeignKey(on_delete=models.CASCADE) #need to add Product_Category model
+   # category = models.ForeignKey(on_delete=models.CASCADE) #need to add Product_Category model
     price = models.DecimalField(max_digits=12, decimal_places=2)
     description = models.TextField(max_length=300)
     
