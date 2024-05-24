@@ -8,21 +8,19 @@ from datetime import datetime
 # Product Category Model
 class Category(models.Model):
     name = models.CharField(max_length=255)
-    description=models.TextField(max_length=255)
+    description = models.TextField(max_length=300)
 
     def __str__(self):
-        return self.name
-
-
+        return self.name  
+     
 class Product(models.Model):
     name = models.CharField(max_length=100)
-    category = models.ForeignKey(Category,on_delete=models.CASCADE)  # Linked to Category
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=12, decimal_places=2)
     description = models.TextField(max_length=300)
     
     def __str__(self):
         return f"Category {self.category} Product: {self.name} | Price: {self.price}"
-
 
 class Product_Stock(models.Model):      #product_info 
     product = models.ForeignKey(Product, on_delete=models.CASCADE) 
@@ -62,7 +60,6 @@ class Order(models.Model):
     status = models.CharField(max_length=100, choices=STATUS_CHOICES, default=STATUS_PENDING)
     order_date = models.DateTimeField(default=datetime.now, blank=True)
     
-
     def __str__(self):
         return f"Order total amount: {self.total_amount} | status: {self.status} | order date: {self.order_date}"
 
@@ -90,6 +87,4 @@ class CartItem(models.Model):
 
     def __str__(self):
         return f"Quantity: {self.quatity} _ Product Name: {self.product.name}"
-
-
 
