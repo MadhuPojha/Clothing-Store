@@ -5,8 +5,6 @@
     {% if user.userprofileinfo %}
         {% if user.userprofileinfo.profile_pic %}
             <img src="{{ user.userprofileinfo.profile_pic.url }}" alt="{{ user.username }}" width="40" height="40" class="rounded-circle" />
-        {% elif user.userprofileinfo.github_profile %}
-            <img src="{{ user.userprofileinfo.github_profile }}.png" alt="{{ user.username }}" width="32" height="32" class="rounded-circle" />
         {% endif %}
     {% endif %}
     </a>
