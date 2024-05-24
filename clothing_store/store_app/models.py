@@ -6,14 +6,14 @@ import datetime
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
-    description=models.TextField(max_length=255)
+    discrption = models.TextField(max_length=300)
 
     def __str__(self):
-        return self.name
-    
+        return f"Category: {self.name}"      
+     
 class Product(models.Model):
     name = models.CharField(max_length=100)
-   # category = models.ForeignKey(on_delete=models.CASCADE) #need to add Product_Category model
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=12, decimal_places=2)
     description = models.TextField(max_length=300)
     
@@ -40,7 +40,6 @@ class Order(models.Model):
     status = models.CharField(max_length=100, choices=STATUS_CHOICES, default=STATUS_PENDING)
     order_date = models.DateField(default=datetime.datetime.today)
     
-
     def __str__(self):
         return f"Order total amount: {self.total_amount} | status: {self.status} | order date: {self.order_date}"
 
@@ -84,3 +83,4 @@ class CartItem(models.Model):
 
     def __str__(self):
         return f"Quantity: {self.quatity} _ Product Name: {self.product.name}"
+ 
