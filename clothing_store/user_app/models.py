@@ -36,3 +36,12 @@ class UserPaymentInfo(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class UserShippingInfo(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    address = models.CharField(Address, max_length=100)
+
+
+    def __str__(self):
+        return self.user.username
