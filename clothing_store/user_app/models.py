@@ -10,3 +10,15 @@ class UserProfileInfo(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class UserPaymentInfo(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    name_on_card = models.CharField(max_length=100)
+    surname_on_card = models.CharField(max_length=100)
+    card_number = models.CharField(max_length=16)
+    expiration_date = models.DateField()
+    cvv = models.CharField(max_length=3)
+
+    def __str__(self):
+        return self.user.username
