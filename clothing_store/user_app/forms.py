@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import UserProfileInfo, UserPaymentInfo, Address
+from .models import UserProfileInfo, UserPaymentInfo, Address, UserShippingInfo
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
@@ -22,3 +22,8 @@ class AddressForm(forms.ModelForm):
     class Meta():
         model = Address
         fields = ('first_name', 'last_name', 'street', 'city', 'state', 'zip_code', 'phone_number')
+
+class UserShippingInfoForm(forms.ModelForm):
+    class Meta():
+        model = UserShippingInfo
+        fields = ('address',)
