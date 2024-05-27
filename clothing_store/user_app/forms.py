@@ -31,4 +31,4 @@ class UserShippingInfoForm(forms.ModelForm):
 class UserBillingInfoForm(forms.ModelForm):
     class Meta():
         model = UserBillingInfo
-        fields = ('billing_address',)
+        fields = ('address',)
