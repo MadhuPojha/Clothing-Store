@@ -11,6 +11,20 @@ class UserProfileInfo(models.Model):
     def __str__(self):
         return self.user.username
 
+class Address(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    street  = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    zip_code = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.user.username
+
 class UserPaymentInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
