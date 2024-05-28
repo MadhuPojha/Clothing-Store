@@ -1,6 +1,6 @@
 {% load static %}
 {% if user.is_authenticated and user.username %}
-    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> 
+    <a class="nav-item dropdown nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 
         {{ user.username }}
     {% if user.userprofileinfo %}
         {% if user.userprofileinfo.profile_pic %}
@@ -9,7 +9,6 @@
     {% endif %}
     </a>
 {% else %}
-    <a href="{% url 'login' %}" class="d-block link-body-emphasis text-decoration-none">Login</a>
-        <p>User profile info not found.</p>
+    <a href="{% url 'login' %}" class="loginbutton d-block link-body-emphasis text-decoration-none">Login</a>
     </a>
 {% endif %}
