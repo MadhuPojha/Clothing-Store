@@ -1,1 +1,2 @@
-changed some text
+add some text
+changes in other test
