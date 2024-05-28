@@ -1,9 +1,85 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
 
-    <h2>Welcome to our Clothing Store</h2>
+<div id="carouselControls" class="carousel slide carousel-fade mt-3" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-interval="2000">
+      <img src="{%static 'images/image1.png' %} " alt="image 1">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>Welcome to the Group 2 Clothing Store</h1>
+        <p>Discover the latest trends and timeless styles 
+          at Fashionista. Our curated collection offers a perfect 
+          blend of classic elegance and contemporary chic, 
+          ensuring that you'll find the perfect outfit for any 
+          occasion. Whether you're dressing for a casual day out 
+          or a glamorous evening event, Fashionista has you covered.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-interval="1000">
+      <img src="{%static 'images/image2.png' %}" alt="image 2">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>New Arrivals</h1>
+        <p>Stay ahead of the fashion curve with our new arrivals.
+           From vibrant spring dresses to cozy winter coats, our new collection features 
+           'the freshest looks of the season. Explore our latest pieces and refresh your 
+           wardrobe with the hottest styles.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-interval="500">
+      <img src="{%static 'images/image3.jpg' %}" alt="image 3">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>Bestsellers</h1>
+        <p>Our bestsellers are a testament to what our customers love.
+           Featuring versatile pieces that are perfect for any wardrobe, 
+           our bestsellers include everything from trendy tops to essential jeans. 
+           Shop our most popular items and see why they’re everyone’s favorite.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="container">
+  <h2 class="text-center mt-5 mb-4">Image Gallery</h2>
+  <div class="row">
+      <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+          <div class="gallery-item bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+              <img src="{%static 'images/gallery1.jpg' %}"  class="w-100" alt="Gallery 1">
+          </div>
+      </div>
+      <div class="col-md-3">
+          <div class="gallery-item">
+              <img src="{%static 'images/gallery2.jpg' %}" class="rounded" alt="Gallery 2">
+          </div>
+      </div>
+      <div class="col-md-3">
+          <div class="gallery-item">
+              <img src="{%static 'images/gallery3.jpg' %}" class="rounded" alt="Gallery 3">
+          </div>
+      </div>
+      <div class="col-md-3">
+        <div class="gallery-item">
+            <img src="{%static 'images/gallery4.jpg' %}" class="rounded" alt="Gallery 4">
+        </div>
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}
