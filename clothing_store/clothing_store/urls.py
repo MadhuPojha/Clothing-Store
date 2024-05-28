@@ -19,6 +19,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from user_app import views as user_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', include('store_app.urls')),
@@ -28,4 +30,4 @@ urlpatterns = [
     path('login/', user_views.login, name='login'),
     path('logout/', user_views.logout, name='logout'),
 
-]
+]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
