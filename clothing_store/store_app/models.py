@@ -73,6 +73,7 @@ class Order_Details(models.Model):
     def __str__(self):
         return f"Order Contains {self.product.name}: {self.quantity}"
 
+#TODO Remove unnecessary code
 # class Cart (models.Model):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE)
 #     product = models.ManyToManyField(Product, through= 'CartItem') # need Product Class
