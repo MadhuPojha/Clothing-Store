@@ -49,12 +49,22 @@
                 <div class="col-md-4">
                     <div class="card mb-4">
                         {% if item.image_url %}
-                            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+                            <img 
+                                src="{{ item.image.url }}" 
+                                class="card-img-top" 
+                                alt="{{ item.name }}"
+                            >
                         {% endif %}
                         <div class="card-body">
                             <h6 class="card-title">{{ item.name }}</h6>
                             <p class="card-text">{{ item.description }}</p>
                             <p class="card-text"><strong>Price:</strong> {{ item.price }}</p>
+                            <form 
+                                action="{% url 'cart_app:cart_add' item.id %}" 
+                                method="post">
+                                    {% csrf_token %}
+                                <button type="submit">Add</button>
+                            </form>
                             <!-- can include more fields here if necessary -->
                         </div>
                     </div>
