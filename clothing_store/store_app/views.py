@@ -23,8 +23,8 @@ def category(request):
     category = Category.objects.all()
     return render(request, 'category.html', {'category': category})	# 'store_app/category.html'
 
-def cart(request):
-    return render(request, "cart.html", {'cart': cart})
+# def cart(request):
+#     return render(request, "cart.html", {'cart': cart})
 
 def order_confirmation(request):
     return render(request, 'order_confirmation.html', {'order_confirmation': order_confirmation})
