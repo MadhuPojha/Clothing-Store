@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}ContactUs{% endblock %}
+
+{% block content %}
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.contact-info {
+    background-color: grey;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.contact-info h4 {
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 20px;
+}
+
+.contact-info ul {
+    padding: 0;
+}
+
+.contact-info ul li {
+    list-style: none;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info ul li i {
+    margin-right: 10px;
+}
+
+.contact-info ul li i.fas {
+    font-size: 20px;
+}
+
+form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form h4 {
+    margin-bottom: 20px;
+}
+
+form .form-group {
+    margin-bottom: 20px;
+}
+
+form .btn {
+    background-color: grey;
+    border: none;
+    color: white;
+}
+</style>
+<div class="container mt-5">
+    <h3 class="text-center">CONNECT  WITH  US</h3><br>
+    <div class="row">
+        <div class="col-md-4 contact-info">
+            <h4>Let's get in touch</h4>
+            <p>We're open for any suggestion or just to have a chat</p>
+            <ul class="list-unstyled">
+                <li><i class="fas fa-map-marker-alt"></i> Address: Group 2 Fashions, Stockholm</li><br>
+                <li><i class="fas fa-phone-alt"></i> Phone: +46 00 123-4567</li><br>
+                <li><i class="fas fa-envelope"></i> Email:  info@group2clothingstore.com</li>
+                
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <h4>Get in touch</h4>
+            <form>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="4" placeholder="Message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% endblock %}

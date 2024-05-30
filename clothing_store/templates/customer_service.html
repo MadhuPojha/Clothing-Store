@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}CustomerService{% endblock %}
+
+{% block content %}
+
+<style>
+    h3 {text-align: center;}
+    p {text-align: center;}
+    .float-container {
+      padding: 10px;
+    }
+
+    .float-child {
+        width: 50%;
+        float: left;
+        padding: 20px;
+        border: 2px solid ;
+    }  
+    .float-child{
+          width: 25%;
+          height: 250px;
+          background-color: gainsboro;
+          
+      }
+  
+</style>
+
+<h3><br><br>WELCOME TO CUSTOMER SERVICE!</h3>
+      <p> How can we help you today?</p><br>
+      <div class="float-container">
+        <div class="float-child ms-5">
+          <div class="return_policy">
+            <h5> You Want To Return Something?</h5><br><br>
+            <div class="text-center">
+              <br><br><button type="button" class="btn btn-secondary">REGISTER YOUR RETURN</button>
+            </div>
+          </div>
+        </div>
+        <div class="float-child ms-5">
+          <div class="order_summary">
+            <h5> You Want to Known About Yor Order?</h5><br>
+            <label for="order_number">OrderNumber:</label>
+            <input type="text" id="order_number" name="order_number" placeholder="e.g 32145621">
+            <div class="text-center">
+              <br><button type="button" class="btn btn-secondary">TRACK YOUR ORDER</button>
+            </div>
+
+          </div>
+        </div>
+        <div class="float-child ms-5">
+            <div class="contact">
+              <h5>Contact Us</h5><br>
+              <div class="container">
+                <h6>CALL :+46 00 123-4567</h6>
+                <h6>WHATSAPP :+46 00 123-4567</h6>
+                <h6>MAIL :group2fashions@xyz.com</h6>
+
+              </div>
+             
+            </div>
+        </div> 
+
+      </div>
+
+{% endblock %}
