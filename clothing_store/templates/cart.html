@@ -1,4 +1,4 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% block title %}Cart{% endblock %} 
 {% block content %}
 <section class="container text-center">
@@ -40,8 +40,8 @@
             <div>
                 <span class="container row">
                     <p class="col">Total Sum</p>
-                    <!-- add placeholder below -->
-                    <p class="col">0,00kr</p> 
+                    <!-- Update total sum below -->
+                    <p class="col">{{ cart.get_sub_total_price }} kr</p> 
                 </span>
                 <!-- add image icon - bag -->
                 <a href="">Continue to checkout</a>
