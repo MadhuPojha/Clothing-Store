@@ -39,6 +39,7 @@ class ProductImages(models.Model):
     def __str__(self):
         return f"Image for {self.product.name}: {self.image.url}"
 
+# TODO Remove unnecessary code
 # class Order(models.Model):
 #     #status options
 #     STATUS_PENDING = 'PENDING'
