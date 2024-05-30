@@ -1,5 +1,5 @@
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
-# Create your views here.
 from django.views.decorators.http import require_POST
 from store_app.models import Product
 from .cart import Cart
@@ -22,4 +22,6 @@ def cart_remove(request, product_id):
 
 def cart_detail(request):
     cart = Cart(request)
-    return render(request, 'cart.html', {'cart': cart})
+    item_count = len(cart)
+    return render(request, 'cart.html', {'cart': cart,
+                                        'item_count': item_count})
