@@ -1,7 +1,52 @@
-{% extends base.html %}
-
-{% block title %}Cart{% endblock %}
-
+{% extends 'base.html' %} 
+{% block title %}Cart{% endblock %} 
 {% block content %}
-<h2>Cart</h2>
+<section class="container text-center">
+    <span class="row"><a href="{% url 'index' %}">G2fashion.com/</a><p class="keyword-link">Cart<p></span>
+    <p>Deliver is free above 500kr</p>
+    <div>
+        <p>Your cart is empty now.</p>
+        <a href="">Check our new collections!</a>
+    </div>
+    <div class="container row">
+        <div class="left-container container col">
+            <p>Do you want to save or access the items in your cart?</p>
+            <span class="container row">
+                <a href="{% url 'login' %}" class="col">Login</a>
+                <p class="col">or</p>
+                <a class="col" href="{% url 'index' %}">Continue Shopping</a>
+            </span>
+            <div>
+                {% for item in cart %}
+                <p>Product Id: ({{ item.product.id }})</p>
+                <p>Price: {{ item.price }} SEK</p>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>Total price: {{ item.total_price }}</p>
+                <form action="{% url 'cart_app:cart_add' item.product.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Add</button>
+                </form>
+                <form action="{% url 'cart_app:cart_remove' item.product.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Remove</button>
+                </form>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="right-container container col">
+            <a href="{% url 'login' %}">Login</a>
+            <p>Log in to check your personal deals and cart</p>
+            <hr>
+            <div>
+                <span class="container row">
+                    <p class="col">Total Sum</p>
+                    <!-- add placeholder below -->
+                    <p class="col">0,00kr</p> 
+                </span>
+                <!-- add image icon - bag -->
+                <a href="">Continue to checkout</a>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
