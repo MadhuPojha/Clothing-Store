@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Order_Confirmation{% endblock %}
+
+{% block content %}
+<style>
+    h3 {text-align: center;}
+firfatio    
+    
+    .order_summary{
+        margin: auto;
+        width: 40%;
+        height: 200px;
+        background-color: gainsboro;
+        padding: 20px
+    }
+    
+</style>
+
+<h3><br><br>THANK YOU FOR SHOPPING WITH US!</h3>
+      <p> We are getting started on your order right away.The order
+        confirmation will be send via mail.</p><br>
+      <div class="order_summary">
+        <h6>ORDER NO.:</h6><br>
+        <h6>TOTAL AMOUNT :</h6><br>
+        <h6>PAYMENT METHOD :</h6><br>
+        <h6>DELIVER TO :</h6>
+      </div>  
+      <div class="text-center">
+        <br><br><button type="button" class="btn btn-secondary">TRACK YOUR ORDER</button>
+      </div>
+
+      <p><br><a href="{% url 'store_app:return_policy' %}">Read about our Return Policy</a></p>
+
+{% endblock %}
