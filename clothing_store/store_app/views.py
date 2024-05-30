@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from store_app.models import Product, Product_Stock, Category
 from datetime import datetime
 from cart_app.cart import Cart
+from django.urls import reverse
+
 # Create your views here.
 
 def home(request):
@@ -9,11 +11,11 @@ def home(request):
     items_view = Product.objects.all()
     return render(request, 'index.html', {'current_year': current_year,
                                           'items_view': items_view})
-
 def product(request):
     product_list=Product.objects.all()
     product_dict={'product_item':product_list}
     return render(request,'product.html',context=product_dict)   # 'store_app/product.html'	
+
 
 def product_stock(request):
     product_stock = Product_Stock.objects.all()
@@ -21,7 +23,7 @@ def product_stock(request):
 
 def category(request):
     category = Category.objects.all()
-    return render(request, 'category.html', {'category': category})	# 'store_app/category.html'
+    return render(request, 'category.html', {'category': category})
 
 def order_confirmation(request):
     return render(request, 'order_confirmation.html', {'order_confirmation': order_confirmation})
@@ -34,3 +36,14 @@ def contact_us(request):
 
 def customer_service(request):
     return render(request, 'customer_service.html', {'customer_service': customer_service})
+
+def filter_items(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    items = Product.objects.filter(category=category)
+    categories = Category.objects.all()  
+    context = {
+        'category': category,
+        'items': items,
+        #'categories': categories  # Pass categories to the template
+    }
+    return render(request, 'category.html', context)
