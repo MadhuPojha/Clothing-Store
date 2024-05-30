@@ -5,16 +5,16 @@
             <p>Group2 is your go-to online clothing store for the latest trends and timeless styles. We offer a wide range of fashion items for men, women, and kids. Discover the 			best in fashion and enjoy exclusive collections.</p>
         </div>
         <div class="col-md-4">
-            <h5>Quick Links</h5>
-            <ul class="list-unstyled">
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-            </ul>
+              <h5>Quick Links</h5>
+              <ul class="list-unstyled">
+                  <li><a href="{% url 'index' %}">Home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="{% url 'store_app:contact_us' %}">Contact</a></li>
+                  <li><a href="{% url 'store_app:customer_service' %}">Customer Service</a></li>
+                  <li><a href="{% url 'store_app:return_policy' %}">Return Policy</a></li>
+              </ul>
           </div>
+
         <div class="col-md-4">
             <h5>Contact Us</h5>
             <ul class="list-unstyled">
