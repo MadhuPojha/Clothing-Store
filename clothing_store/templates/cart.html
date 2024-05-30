@@ -1,52 +1,73 @@
-{% extends 'base.html' %}
-
+{% extends 'base.html' %} 
 {% block title %}Cart{% endblock %} 
 {% block content %}
 <section class="container text-center">
-    <span class="row"><a href="{% url 'index' %}">G2fashion.com/</a><p class="keyword-link">Cart<p></span>
-    <p>Deliver is free above 500kr</p>
-    <div>
-        <p>Your cart is empty now.</p>
-        <a href="">Check our new collections!</a>
+  <span class="row"
+    ><a href="{% url 'index' %}">G2fashion.com/</a>
+    <p class="keyword-link">Cart</p>
+    <p></p
+  ></span>
+  <p>Deliver is free above 500kr</p>
+  <div>
+    <p>Your cart is empty now.</p>
+    <a href="">Check our new collections!</a>
+  </div>
+  <div class="container row">
+    <div class="left-container container col">
+      <p>Do you want to save or access the items in your cart?</p>
+      <span class="container row">
+        <a href="{% url 'login' %}" class="col">Login</a>
+        <p class="col">or</p>
+        <a class="col" href="{% url 'index' %}">Continue Shopping</a>
+      </span>
+      <div>
+        {% for item in cart %}
+        <p>Product Id: ({{ item.product.id }})</p>
+        <p>Price: {{ item.price }} SEK</p>
+        <p>Quantity: {{ item.quantity }}</p>
+        <p>Total price: {{ item.total_price }}</p>
+        <form
+          action="{% url 'cart_app:cart_add' item.product.id %}"
+          method="post"
+        >
+          {% csrf_token %}
+          <button type="submit">Add</button>
+        </form>
+        <form
+          action="{% url 'cart_app:cart_remove' item.product.id %}"
+          method="post"
+        >
+          {% csrf_token %}
+          <button type="submit">Remove</button>
+        </form>
+        {% endfor %}
+      </div>
     </div>
-    <div class="container row">
-        <div class="left-container container col">
-            <p>Do you want to save or access the items in your cart?</p>
-            <span class="container row">
-                <a href="{% url 'login' %}" class="col">Login</a>
-                <p class="col">or</p>
-                <a class="col" href="{% url 'index' %}">Continue Shopping</a>
-            </span>
-            <div>
-                {% for item in cart %}
-                <p>Product Id: ({{ item.product.id }})</p>
-                <p>Price: {{ item.price }} SEK</p>
-                <p>Quantity: {{ item.quantity }}</p>
-                <p>Total price: {{ item.total_price }}</p>
-                <form action="{% url 'cart_app:cart_add' item.product.id %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit">Add</button>
-                </form>
-                <form action="{% url 'cart_app:cart_remove' item.product.id %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit">Remove</button>
-                </form>
-                {% endfor %}
-            </div>
+    <div class="right-container container col">
+      {% if user.is_authenticated %}
+      <p>Welcome </p>
+      <p>Always keep on logged in to check your personal deals and cart</p>
+      {% else %}
+      <a href="{% url 'login' %}">Login</a>
+      <p>Log in to check your personal deals and cart</p>
+      {% endif %}
+      <hr />
+      <div>
+        <span class="container row">
+          <p class="col">Total Sum</p>
+          <!-- Update total sum below -->
+          <p class="col">{{ cart.get_sub_total_price }} kr</p>
+        </span>
+        <div>
+        {% if user.is_authenticated %}
+            <a href="{% url 'checkout_app:checkout' %}">Continue to checkout</a>
+        {% else %}
+            <a href="{% url 'login' %}?next={% url 'checkout_app:checkout' %}">Login to proceed to checkout</a>
+        {% endif %}
         </div>
-        <div class="right-container container col">
-            <a href="{% url 'login' %}">Login</a>
-            <p>Log in to check your personal deals and cart</p>
-            <hr>
-            <div>
-                <span class="container row">
-                    <p class="col">Total Sum</p>
-                    <!-- Update total sum below -->
-                    <p class="col">{{ cart.get_sub_total_price }} kr</p> 
-                </span>
-                <!-- add image icon - bag -->
-                <a href="">Continue to checkout</a>
-            </div>
-        </div>
+        <!-- add image icon - bag -->
+      </div>
     </div>
+  </div>
 </section>
+{% endblock %}
