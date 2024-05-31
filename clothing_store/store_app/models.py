@@ -11,7 +11,7 @@ class Category(models.Model):
     description = models.TextField(max_length=255)
 
     def __str__(self):
-        return self.name  
+        return f"Name: {self.name} Id: {self.id} " 
      
 class Product(models.Model):
     name = models.CharField(max_length=100)
@@ -29,7 +29,7 @@ class Product_Stock(models.Model):      #product_info
     stock = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"Product: {self.Product.product} Size: {self.size} Color:{self.color} Stock:{self.stock}"
+        return f"Product: {self.product} Size: {self.size} Color:{self.color} Stock:{self.stock}"
     
 class ProductImages(models.Model):
     image = models.FileField(upload_to='products_images', blank=True)
