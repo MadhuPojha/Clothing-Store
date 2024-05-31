@@ -1,14 +1,31 @@
 {% load static %}
 {% if user.is_authenticated and user.username %}
-    <a class="nav-item dropdown nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 
+    <a 
+        class="nav-item dropdown nav-link dropdown-toggle" 
+        href="#" 
+        id="navbarDropdown" 
+        role="button" 
+        data-bs-toggle="dropdown" 
+        aria-expanded="false"
+    > 
         {{ user.username }}
     {% if user.userprofileinfo %}
         {% if user.userprofileinfo.profile_pic %}
-            <img src="{{ user.userprofileinfo.profile_pic.url }}" alt="{{ user.username }}" width="40" height="40" class="rounded-circle" />
+            <img 
+                src="{{ user.userprofileinfo.profile_pic.url }}" 
+                alt="{{ user.username }}" 
+                width="40" 
+                height="40" 
+                class="rounded-circle" 
+            />
         {% endif %}
     {% endif %}
     </a>
 {% else %}
-    <a href="{% url 'login' %}" class="loginbutton d-block link-body-emphasis text-decoration-none">Login</a>
+    <a 
+        href="{% url 'login' %}" 
+        class="loginbutton d-block link-body-emphasis text-decoration-none"
+        >Login
+    </a>
     </a>
 {% endif %}
