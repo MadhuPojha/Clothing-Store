@@ -52,9 +52,11 @@
                             <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
                         {% endif %}
                         <div class="card-body">
-                            <h6 class="card-title">{{ item.name }}</h6>
+                            <h6 class="card-title">
+                                <a href="#">{{ item.name }}</a></h6>  <!-- set link to product_detail page(with product_id)-->
                             <p class="card-text">{{ item.description }}</p>
                             <p class="card-text"><strong>Price:</strong> {{ item.price }}</p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a> <!--set link to cart-->
                             <!-- can include more fields here if necessary -->
                         </div>
                     </div>
