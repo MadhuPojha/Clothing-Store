@@ -90,9 +90,9 @@ a {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
-    }
+}
 .equal-btn {
-    width: 100%;
-    font-size: 5em; 
+    width: 50%;
+    font-size: .5em; 
     font-weight: bold;
 }
