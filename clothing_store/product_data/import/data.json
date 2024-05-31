@@ -1,0 +1,364 @@
+{
+    "clothing_items": [
+        {
+            "GUID": "1",
+            "Title": "Blue Striped Shirt",
+            "Description": "Blue shirt with white stripes",
+            "Detailed Description": "Blue shirt with horizontal white stripes. Slim fit design with a button-down collar. Ideal for casual or semi-formal occasions.",
+            "Category": "Top",
+            "Price": 29.99,
+            "Size Range": ["S", "M", "L", "XL"],
+            "Color": "Blue/White"
+        },
+        {
+            "GUID": "2",
+            "Title": "Black Skinny Jeans",
+            "Description": "Black skinny jeans for men",
+            "Detailed Description": "Men's black skinny jeans with a stretchable fabric. Classic 5-pocket design with a zip fly and button closure. Perfect for a stylish and comfortable look.",
+            "Category": "Bottom",
+            "Price": 39.99,
+            "Size Range": ["28", "30", "32", "34"],
+            "Color": "Black"
+        },
+        {
+            "GUID": "3",
+            "Title": "Flowy Floral Dress",
+            "Description": "Flowy floral dress with a v-neckline",
+            "Detailed Description": "Elegant floral dress with a flowy silhouette and a v-neckline. The dress features a floral print with pastel colors, perfect for spring and summer occasions.",
+            "Category": "Dress",
+            "Price": 49.99,
+            "Size Range": ["XS", "S", "M", "L"],
+            "Color": "Floral Print"
+        },
+        {
+            "GUID": "4",
+            "Title": "Khaki Trench Coat",
+            "Description": "Classic khaki trench coat for women",
+            "Detailed Description": "Women's classic khaki trench coat with a double-breasted front and a waist belt. The coat has shoulder epaulets and buttoned side pockets.",
+            "Category": "Outerwear",
+            "Price": 79.99,
+            "Size Range": ["S", "M", "L"],
+            "Color": "Khaki"
+        },
+        {
+            "GUID": "5",
+            "Title": "Leather Crossbody Bag",
+            "Description": "Black leather crossbody bag",
+            "Detailed Description": "Black leather crossbody bag with gold-tone hardware. The bag has a front zip pocket and an adjustable shoulder strap for easy wear.",
+            "Category": "Accessories",
+            "Price": 59.99,
+            "Size Range": ["One Size"],
+            "Color": "Black"
+        },
+        {
+            "GUID": "6",
+            "Title": "Striped Sweater",
+            "Description": "Striped sweater in neutral tones",
+            "Detailed Description": "Neutral-toned sweater with horizontal stripes in beige, grey, and white. The sweater has a crew neckline and ribbed cuffs and hem.",
+            "Category": "Top",
+            "Price": 34.99,
+            "Size Range": ["S", "M", "L"],
+            "Color": "Beige/Grey/White"
+        },
+        {
+            "GUID": "7",
+            "Title": "Denim Shorts",
+            "Description": "Light wash denim shorts for women",
+            "Detailed Description": "Women's light wash denim shorts with distressed detailing. The shorts have a high-rise waist and frayed hem. Perfect for a summery casual look.",
+            "Category": "Bottom",
+            "Price": 24.99,
+            "Size Range": ["25", "27", "29", "31"],
+            "Color": "Light Blue"
+        },
+        {
+            "GUID": "8",
+            "Title": "Floral Print Maxi Dress",
+            "Description": "Bohemian-style maxi dress with floral print",
+            "Detailed Description": "Bohemian-style maxi dress with a flowy silhouette and a vibrant floral print. The dress features a plunging neckline and adjustable tie straps.",
+            "Category": "Dress",
+            "Price": 54.99,
+            "Size Range": ["XS", "S", "M", "L"],
+            "Color": "Multicolor Floral Print"
+        },
+        {
+            "GUID": "9",
+            "Title": "Puffer Jacket",
+            "Description": "Black puffer jacket for men",
+            "Detailed Description": "Men's black puffer jacket with a quilted design and a zip front closure. The jacket has a high neck and side zip pockets for added functionality.",
+            "Category": "Outerwear",
+            "Price": 69.99,
+            "Size Range": ["M", "L", "XL"],
+            "Color": "Black"
+        },
+        {
+            "GUID": "10",
+            "Title": "Wool Fedora Hat",
+            "Description": "Classic wool fedora hat in black",
+            "Detailed Description": "Classic black wool fedora hat with a structured crown and a wide brim. The hat is embellished with a ribbon band for a sophisticated touch.",
+            "Category": "Accessories",
+            "Price": 39.99,
+            "Size Range": ["One Size"],
+            "Color": "Black"
+        },
+        {
+            "GUID": "11",
+            "Title": "Plaid Flannel Shirt",
+            "Description": "Plaid flannel shirt in red and black",
+            "Detailed Description": "Classic red and black plaid flannel shirt with a soft and cozy fabric. The shirt has a button-up design and chest pockets, perfect for a casual and warm look.",
+            "Category": "Top",
+            "Price": 29.99,
+            "Size Range": ["S", "M", "L"],
+            "Color": "Red/Black Plaid"
+        },
+        {
+            "GUID": "12",
+            "Title": "Cargo Pants",
+            "Description": "Cargo pants with multiple pockets",
+            "Detailed Description": "Men's cargo pants in olive green with multiple pockets for functionality. The pants have a relaxed fit and adjustable drawstring hems for a versatile look.",
+            "Category": "Bottom",
+            "Price": 44.99,
+            "Size Range": ["30", "32", "34", "36"],
+            "Color": "Olive Green"
+        },
+        {
+            "GUID": "13",
+            "Title": "Lace Trim Slip Dress",
+            "Description": "Satin slip dress with lace trim",
+            "Detailed Description": "Satin slip dress in champagne color with delicate lace trim detailing. The dress features adjustable spaghetti straps and a flattering bias cut.",
+            "Category": "Dress",
+            "Price": 39.99,
+            "Size Range": ["XS", "S", "M", "L"],
+            "Color": "Champagne"
+        },
+        {
+            "GUID": "14",
+            "Title": "Faux Fur Coat",
+            "Description": "Soft faux fur coat in cream",
+            "Detailed Description": "Women's faux fur coat in a luxurious cream color. The coat has a plush texture and a relaxed fit, perfect for adding glamour and warmth to any outfit.",
+            "Category": "Outerwear",
+            "Price": 89.99,
+            "Size Range": ["S", "M", "L"],
+            "Color": "Cream"
+        },
+        {
+            "GUID": "15",
+            "Title": "Quilted Crossbody Bag",
+            "Description": "Quilted black crossbody bag",
+            "Detailed Description": "Black quilted crossbody bag with a chain strap and gold-tone hardware. The bag features a fold-over flap with a twist-lock closure for a chic and sophisticated look.",
+            "Category": "Accessories",
+            "Price": 49.99,
+            "Size Range": ["One Size"],
+            "Color": "Black"
+        },
+        {
+            "GUID": "16",
+            "Title": "Striped Crop Top",
+            "Description": "Striped crop top in pastel colors",
+            "Detailed Description": "Pastel-colored crop top with vertical stripes in soft pink, blue, and yellow. The top has a square neckline and short puff sleeves for a trendy and feminine style.",
+            "Category": "Top",
+            "Price": 19.99,
+            "Size Range": ["S", "M", "L"],
+            "Color": "Pink/Blue/Yellow"
+        },
+        {
+            "GUID": "17",
+            "Title": "Denim Skirt",
+            "Description": "High-waisted denim skirt",
+            "Detailed Description": "Women's high-waisted denim skirt in medium wash. The skirt features a button-up front and front patch pockets, giving it a retro and casual vibe.",
+            "Category": "Bottom",
+            "Price": 34.99,
+            "Size Range": ["26", "28", "30", "32"],
+            "Color": "Medium Wash Blue"
+        },
+        {
+            "GUID": "18",
+            "Title": "Off-Shoulder Jumpsuit",
+            "Description": "Off-shoulder jumpsuit in navy blue",
+            "Detailed Description": "Navy blue off-shoulder jumpsuit with a ruffled neckline and tie belt at the waist. The jumpsuit features wide legs and is perfect for a dressed-up casual look.",
+            "Category": "Dress",
+            "Price": 59.99,
+            "Size Range": ["XS", "S", "M", "L"],
+            "Color": "Navy Blue"
+        },
+        {
+            "GUID": "19",
+            "Title": "Faux Leather Moto Jacket",
+            "Description": "Black faux leather moto jacket",
+            "Detailed Description": "Edgy black faux leather moto jacket with silver-tone hardware and zip details. The jacket features a notched lapel and belted waist for a modern and cool style.",
+            "Category": "Outerwear",
+            "Price": 69.99,
+            "Size Range": ["S", "M", "L"],
+            "Color": "Black"
+        },
+        {
+            "GUID": "20",
+            "Title": "Wide Brim Straw Hat",
+            "Description": "Wide brim straw hat with black ribbon",
+            "Detailed Description": "Natural straw hat with a wide brim and a classic black ribbon band. The hat is perfect for sunny days and beach outings, providing both style and sun protection.",
+            "Category": "Accessories",
+            "Price": 29.99,
+            "Size Range": ["One Size"],
+            "Color": "Natural"
+        },
+        {
+            "GUID": "21",
+            "Title": "Cable Knit Sweater",
+            "Description": "Chunky cable knit sweater in ivory",
+            "Detailed Description": "Chunky cable knit sweater in ivory with a cozy and textured design. The sweater features a ribbed crew neckline and sleeves, perfect for staying warm and stylish.",
+            "Category": "Top",
+            "Price": 39.99,
+            "Size Range": ["S", "M", "L"],
+            "Color": "Ivory"
+        },
+        {
+            "GUID": "22",
+            "Title": "Camo Cargo Pants",
+            "Description": "Camo print cargo pants for men",
+            "Detailed Description": "Men's camo print cargo pants with a relaxed fit and multiple pockets for utility. The pants feature a drawstring waist and elasticized cuffs for a modern look.",
+            "Category": "Bottom",
+            "Price": 49.99,
+            "Size Range": ["30", "32", "34", "36"],
+            "Color": "Camo Print"
+        },
+        {
+            "GUID": "23",
+            "Title": "Ruffled Wrap Dress",
+            "Description": "Floral wrap dress with ruffled details",
+            "Detailed Description": "Floral wrap dress with a deep V-neckline and ruffled trim. The dress has a tie waist and flowy sleeves, creating a romantic and feminine silhouette.",
+            "Category": "Dress",
+            "Price": 44.99,
+            "Size Range": ["XS", "S", "M", "L"],
+            "Color": "Floral Print"
+        },
+        {
+            "GUID": "24",
+            "Title": "Fleece-Lined Parka",
+            "Description": "Fleece-lined parka in olive green",
+            "Detailed Description": "Women's olive green parka with a cozy fleece lining and a faux fur-trimmed hood. The parka has multiple pockets and a drawstring waist for a flattering fit.",
+            "Category": "Outerwear",
+            "Price": 79.99,
+            "Size Range": ["S", "M", "L"],
+            "Color": "Olive Green"
+        },
+        {
+            "GUID": "25",
+            "Title": "Mini Backpack",
+            "Description": "Mini backpack in blush pink",
+            "Detailed Description": "Blush pink mini backpack with gold-tone hardware and adjustable shoulder straps. The backpack features a front zip pocket and a top zip closure.",
+            "Category": "Accessories",
+            "Price": 34.99,
+            "Size Range": ["One Size"],
+            "Color": "Blush Pink"
+        },
+        {
+            "GUID": "26",
+            "Title": "V-Neck Knit Sweater",
+            "Description": "V-neck knit sweater in camel",
+            "Detailed Description": "Camel-colored knit sweater with a V-neckline and ribbed trims. The sweater has a relaxed fit and is perfect for layering over shirts or tees.",
+            "Category": "Top",
+            "Price": 29.99,
+            "Size Range": ["S", "M", "L"],
+            "Color": "Camel"
+        },
+        {
+            "GUID": "27",
+            "Title": "Pleated Midi Skirt",
+            "Description": "Pleated midi skirt in metallic silver",
+            "Detailed Description": "Shimmering metallic silver midi skirt with accordion pleats and an elastic waistband. The skirt has a flowy silhouette and is ideal for dressing up or down.",
+            "Category": "Bottom",
+            "Price": 49.99,
+            "Size Range": ["S", "M", "L"],
+            "Color": "Metallic Silver"
+        },
+        {
+            "GUID": "28",
+            "Title": "Floral Wrap Maxi Dress",
+            "Description": "Boho-inspired wrap maxi dress",
+            "Detailed Description": "Bohemian-inspired maxi dress with a wrap design and floral print. The dress features flutter sleeves and a tie waist, perfect for a boho-chic look.",
+            "Category": "Dress",
+            "Price": 54.99,
+            "Size Range": ["XS", "S", "M", "L"],
+            "Color": "Floral Print"
+        },
+        {
+            "GUID": "29",
+            "Title": "Hooded Fleece Jacket",
+            "Description": "Hooded fleece jacket in navy",
+            "Detailed Description": "Navy hooded fleece jacket with a zip front closure and side zip pockets. The jacket has a contrast drawstring hood and a casual sporty vibe.",
+            "Category": "Outerwear",
+            "Price": 59.99,
+            "Size Range": ["S", "M", "L"],
+            "Color": "Navy"
+        },
+        {
+            "GUID": "30",
+            "Title": "Bucket Hat",
+            "Description": "Trendy bucket hat in khaki",
+            "Detailed Description": "Khaki bucket hat with a wide brim and a relaxed fit. The hat is made of soft cotton and is perfect for adding a cool and casual touch to any outfit.",
+            "Category": "Accessories",
+            "Price": 19.99,
+            "Size Range": ["One Size"],
+            "Color": "Khaki"
+        },
+        {
+            "GUID": "31",
+            "Title": "Ruffled Blouse",
+            "Description": "Ruffled blouse in polka dot print",
+            "Detailed Description": "Polka dot print blouse with ruffled neckline and sleeves. The blouse has a button-up front and a tie waist detail, creating a polished and feminine look.",
+            "Category": "Top",
+            "Price": 39.99,
+            "Size Range": ["S", "M", "L"],
+            "Color": "Polka Dot Print"
+        },
+        {
+            "GUID": "32",
+            "Title": "Pleated Culottes",
+            "Description": "Pleated culottes in navy blue",
+            "Detailed Description": "Navy blue pleated culottes with a high-rise waist and wide legs. The culottes have a concealed side zip closure and are perfect for a modern and sophisticated style.",
+            "Category": "Bottom",
+            "Price": 44.99,
+            "Size Range": ["XS", "S", "M", "L"],
+            "Color": "Navy Blue"
+        },
+        {
+            "GUID": "33",
+            "Title": "Floral Print Ruffle Dress",
+            "Description": "Floral print dress with ruffle trim",
+            "Detailed Description": "Floral print dress with a wrap silhouette and cascading ruffle trim. The dress features a V-neckline and tie waist detail, perfect for a feminine and romantic look.",
+            "Category": "Dress",
+            "Price": 49.99,
+            "Size Range": ["XS", "S", "M", "L"],
+            "Color": "Floral Print"
+        },
+        {
+            "GUID": "34",
+            "Title": "Belted Trench Coat",
+            "Description": "Classic belted trench coat in camel",
+            "Detailed Description": "Classic belted trench coat in camel color with a double-breasted front and storm flap details. The coat has a removable belt and is a timeless outerwear piece.",
+            "Category": "Outerwear",
+            "Price": 79.99,
+            "Size Range": ["S", "M", "L"],
+            "Color": "Camel"
+        },
+        {
+            "GUID": "35",
+            "Title": "Beaded Drop Earrings",
+            "Description": "Statement beaded earrings in teal",
+            "Detailed Description": "Teal beaded drop earrings with a gold-tone stud and intricate beadwork. The earrings are lightweight and perfect for adding a pop of color to any outfit.",
+            "Category": "Accessories",
+            "Price": 24.99,
+            "Size Range": ["One Size"],
+            "Color": "Teal"
+        },
+        {
+            "GUID": "36",
+            "Title": "Striped Button-Up Shirt",
+            "Description": "Striped button-up shirt in blue and white",
+            "Detailed Description": "Blue and white striped button-up shirt with a relaxed fit and cuffed sleeves. The shirt has a front patch pocket and a curved hem, perfect for a casual and polished look.",
+            "Category": "Top",
+            "Price": 34.99,
+            "Size Range": ["S", "M", "L"],
+            "Color": "Blue/White Stripes"
+        }
+    ]
+}
