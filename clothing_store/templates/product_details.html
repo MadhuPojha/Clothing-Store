@@ -5,38 +5,41 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-5">
-            {% if product_img %}
-                <img src='{{ product_img.image.url }}'  alt="{{ product_details.name }}" class="cover-image img-thumbnail" width="">
+            {% if product.product_img %}
+                <p><strong>Images:</strong></p>
+                {% for img in product.product_img %}
+                    <img src="{{ img.image.url }}" alt="{{ product.product_detail.name }}" class="cover-image img-thumbnail" width=""> 
+                {% endfor %}
             {% else %}
                 <p>Image not found.</p> 
             {% endif %}
         </div>    
         <div class="col-md-6">
-            <p><strong>{{ product_details.category }}: {{ product_details.name }}</strong></p>
-            <p><strong>Price:</strong> {{ product_details.price }} SEK</p>
+            <p><strong>{{ product.product_detail.category }}: {{ product.product_detail.name }}</strong></p>
+            <p><strong>Price:</strong> {{ product.product_detail.price }} SEK</p>
 
-            {% if product_stock %}
-                <p><strong>Colour: </strong> {{ product_stock.first.color }}</p>
+            {% if product.product_stock %}
+                <p><strong>Colour: </strong> {{ product.product_stock.first.color }}</p>
                 <p>
                     <label for="size"><strong>Choose a size:</strong></label>
                     <select name="size" id="size">
-                        {% for stock in product_stock %}
+                        {% for stock in product.product_stock %}
                             <option value="{{ stock.size }}">{{ stock.size }}</option>
                         {% endfor %}
                     </select>
                 </p>
             {% else %}
                 <p>Stock information not found.</p>
-            {% endif %}
+            {% endif %}    
 
-            {% if product_details.description %}
-                <p><strong>Description:</strong> {{ product_details.description }}</p>
+            {% if product.product_detail.description %}
+                <p><strong>Description:</strong> {{ product.product_detail.description }}</p>
             {% else %}
                 <p>Description not found.</p>
             {% endif %}
 
             {% if user.is_authenticated %}
-                <form method="POST" action="">
+                <form method="POST" action="#">
                     {% csrf_token %}
 
                     <button type="submit" class="btn btn-primary btn-block">Add to Cart</button>
