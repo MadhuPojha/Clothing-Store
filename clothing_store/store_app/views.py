@@ -12,8 +12,14 @@ def home(request):
     return render(request, 'index.html', {'current_year': current_year,
                                           'items_view': items_view})
 def product(request):
-    product_list=Product.objects.all()
+    sort_by = request.GET.get('sort_by', 'name')
+    order = request.GET.get('order', 'asc')
+    ordering = sort_by if order == 'asc' else f'-{sort_by}'
+    
+    product_list=Product.objects.all().order_by(ordering)
     product_dict={'product_item':product_list}
+    
+    #products = Product.objects.all().order_by(ordering)
     return render(request,'product.html',context=product_dict)   # 'store_app/product.html'	
 
 
