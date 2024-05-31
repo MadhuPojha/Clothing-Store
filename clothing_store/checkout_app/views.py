@@ -5,7 +5,6 @@ from cart_app.cart import Cart
 from decimal import Decimal
 from .models import Order
 
-
 @login_required
 def checkout(request):
     cart = Cart(request)
