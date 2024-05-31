@@ -11,7 +11,7 @@
 
           <div class="card">
             <div class="card-body">
-                <img style = "height: 150px; width: 100%;"class = "card-img-top" src="{%static 'images/dress3.avif' %}"  class="rounded mx-auto d-block"   alt="dress">
+                <img style = "height: 170px; width: 100%;"class = "card-img-top" src="{%static 'images/dress3.avif' %}"  class="rounded mx-auto d-block"   alt="dress">
             </div>
             <div class="col-md-6">
                 <p class = "card-img-overlay"><b>Summer Sale!</b> <br>Upto 30% discount on selected items <br>GET,SET,READY </p>
@@ -21,7 +21,7 @@
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
-                <img style = "height: 150px; width: 100%;"class = "card-img-top" src="{%static 'images/dress5.png' %}"  class="rounded mx-auto d-block"   alt="dress">
+                <img style = "height: 170px; width: 100%;"class = "card-img-top" src="{%static 'images/dress5.png' %}"  class="rounded mx-auto d-block"   alt="dress">
             </div>
             <div class="col-md-6">
                 <p class = "card-img-overlay"><b>Time to Explor our Collection</b><br>NEW SEASON, NEW MOOD <br>NEW YOU! </p>
@@ -32,12 +32,11 @@
       <br>
       <!--Category Buttons-->
       <div class="text-center">
-        <div class="btn-group" role="group" aria-label="button_group">
-            <a class="btn btn-light btn-lg" href="{% url 'store_app:category' %}" role="button">Dress</a>
-            <a class="btn btn-light btn-lg" href="{% url 'store_app:category' %}" role="button">Tops</a>
-            <a class="btn btn-light btn-lg" href="{% url 'store_app:category' %}" role="button">Bottoms</a>
-            <a class="btn btn-light btn-lg" href="{% url 'store_app:category' %}" role="button">Accessories</a>
-            
+        <div class="mb-3">
+            <a href="?sort_by=price&order=asc" class="btn btn-secondary">Sort by Price (Low to High)</a>
+            <a href="?sort_by=price&order=desc" class="btn btn-secondary">Sort by Price (High to Low)</a>
+            <a href="?sort_by=name&order=asc" class="btn btn-secondary">Sort by Name (A-Z)</a>
+            <a href="?sort_by=name&order=desc" class="btn btn-secondary">Sort by Name (Z-A)</a>
         </div>
     </div>
     <!--All Products View-->
@@ -75,7 +74,41 @@
             {% endfor %}
         </div>
     </div>
-
+    <div class="container">
+        <h3 class=" mt-5 mb-4"><b><i>We think you’ll like these</i</b><br>
+            Recommended for you</h3>
+        <div class="row">
+          <div class="col-6 col-md-4 col-lg-3 gallery-item">
+            <img
+              src="{%static 'images/glasses.png' %}"
+              alt="Image 1"
+              class="gallery-img img-fluid"
+            />
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 gallery-item">
+            <img
+              src="{%static 'images/image6.png' %}"
+              alt="Image 2"
+              class="gallery-img img-fluid"
+            />
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 gallery-item">
+            <img
+              src="{%static 'images/image4.png' %}"
+              alt="Image 2"
+              class="gallery-img img-fluid"
+            />
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 gallery-item">
+            <img
+              src="{%static 'images/image5.png' %}"
+              alt="Image 2"
+              class="gallery-img img-fluid"
+            />
+          </div>
+        </div>
+        
+    </div>      
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
