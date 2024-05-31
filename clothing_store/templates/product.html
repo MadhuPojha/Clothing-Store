@@ -58,6 +58,8 @@
                         <div class="card-body">
                             <h6 class="card-title">{{ item.name }}</h6>
                             <p class="card-text">{{ item.description }}</p>
+                            <p class="card-text"><strong>Category:</strong> {{ item.category }}</p>
+                            <p class="card-text"><strong>Details:</strong> {{ item.product_detail }}</p>
                             <p class="card-text"><strong>Price:</strong> {{ item.price }}</p>
                             <form 
                                 action="{% url 'cart_app:cart_add' item.id %}" 
