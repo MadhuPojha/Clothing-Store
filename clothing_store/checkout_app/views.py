@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from cart_app.cart import Cart
 
 @login_required
 def checkout(request):
-    # Your checkout logic goes here
-    return render(request, 'checkout_app/checkout.html')
+    cart = Cart(request)
+    sub_total_price = cart.get_sub_total_price()
+    return render(request, 'checkout.html', {'cart': cart, 'sub_total_price': sub_total_price})
 
 @login_required
 def order_summary(request):
@@ -13,5 +15,5 @@ def order_summary(request):
     if request.method == "POST":
         # Handle billing form submission
         pass
-    return render(request, 'checkout_app/order_summary.html')
+    return render(request, 'order_summary.html')
 # Create your views here.

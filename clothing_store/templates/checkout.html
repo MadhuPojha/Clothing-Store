@@ -1,0 +1,45 @@
+{% extends 'base.html' %} 
+{% block title %}Checkout{% endblock %} 
+{% block content%}
+
+    <h2>Checkout</h2>
+
+    <p>Order Details</p>
+    <p>Products</p>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <th scope="col">Product Id</th>
+                <th scope="col">Product name</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total Price</th>
+            </thead>
+            {% for item in cart %}
+            <tr>
+                <td>({{ item.product.id }})</td>
+                <td>({{ item.product.name }})</td>
+                <td>{{ item.price }} SEK</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.total_price }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <p class="col">Order subtotal: {{ cart.get_sub_total_price }} kr</p>
+    <p>Tax:</p>
+    {% if cart.get_sub_total_price > 500 %}
+    <p>Delivery: FREE</p>
+    {% else %}
+    <p>Delivery: 59 kr</p>
+    {% endif %}
+    <p></p>
+    <p>Total:</p>
+    <h2>Billing Information</h2>
+    
+    <a href="{% url 'cart_app:cart_detail' %}">Go back to cart</a>
+    <form action="{% url 'checkout_app:order_summary' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Proceed to Order Summary</button>
+    </form>
+{% endblock %}
