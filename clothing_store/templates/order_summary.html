@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Order Summary{% endblock %}
+{% block content %}
+<section class="container">
+    <h2>Order Summary</h2>
+    <!-- Display order summary details here -->
+    <p>Total: {{ cart.get_sub_total_price() }} kr</p>
+    <!-- Form to confirm order -->
+    <form action="{% url 'checkout_app:confirm_order' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Order</button>
+    </form>
+</section>
+{% endblock %}

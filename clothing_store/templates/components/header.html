@@ -1,57 +1,92 @@
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-custom ">
+  <nav class="navbar navbar-expand-lg navbar-custom rounded">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Group2 Clothing Store</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Shop</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'register' %}">Register</a>
-              </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categories
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Dresses</a></li>
-                        <li><a class="dropdown-item" href="#">Tops</a></li>
-                        <li><a class="dropdown-item" href="#">Bottoms</a></li>
-                        <li><a class="dropdown-item" href="#">Accessories</a></li>
-                    </ul>
-                </li>
+      <a class="navbar-brand" href="#">Group2 Clothing Store</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="{% url 'index' %}"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="{% url 'store_app:product' %}">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'store_app:contact_us' %}">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Categories
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Dresses</a></li>
+              <li><a class="dropdown-item" href="#">Tops</a></li>
+              <li><a class="dropdown-item" href="#">Bottoms</a></li>
+              <li><a class="dropdown-item" href="#">Accessories</a></li>
             </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4 text-end">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {% include "components/logged_in_user.html" %}
+          </button>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="dropdownMenuButton"
+          >
+            {% include "components/dropdown_urls.html" %}
+          </ul>
         </div>
-        <div class="col-md-4 text-end">
-          <div class="dropdown">
-              <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                {% include "components/logged_in_user.html" %}
-              </button>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                {% include "components/dropdown_urls.html" %}
-              </ul>
-          </div>
       </div>
     </div>
-    <a href="#" class="btn btn-outline-secondary me-3">
+    <a
+      href="{% url 'cart_app:cart_detail' %}"
+      class="btn btn-outline-secondary me-3"
+    >
       <i class="bi bi-cart icon-white"></i>
-  </a>
+    </a>
+    {% if cart_item_count != 0 %}
+    <p>Cart: {{ cart_item_count }}</p>
+    {% else %}
+    <div></div>
+    {% endif %}
   </nav>
 </div>
 
-<div class="container">
-  {% include "components/searchbar.html" %}
-</div>
+<div class="container">{% include "components/searchbar.html" %}</div>

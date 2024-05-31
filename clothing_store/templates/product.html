@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Product{% endblock %}
+
+{% block content %}
+<br>
+<!-- Banner Image Section-->
+    <div class="row">
+        <div class="col-sm-6">
+
+          <div class="card">
+            <div class="card-body">
+                <img style = "height: 150px; width: 100%;"class = "card-img-top" src="{%static 'images/dress3.avif' %}"  class="rounded mx-auto d-block"   alt="dress">
+            </div>
+            <div class="col-md-6">
+                <p class = "card-img-overlay"><b>Summer Sale!</b> <br>Upto 30% discount on selected items <br>GET,SET,READY </p>
+            </div>
+          </div>
+    </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+                <img style = "height: 150px; width: 100%;"class = "card-img-top" src="{%static 'images/dress5.png' %}"  class="rounded mx-auto d-block"   alt="dress">
+            </div>
+            <div class="col-md-6">
+                <p class = "card-img-overlay"><b>Time to Explor our Collection</b><br>NEW SEASON, NEW MOOD <br>NEW YOU! </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <!--Category Buttons-->
+      <div class="text-center">
+        <div class="btn-group" role="group" aria-label="button_group">
+            <a class="btn btn-light btn-lg" href="{% url 'store_app:category' %}" role="button">Dress</a>
+            <a class="btn btn-light btn-lg" href="{% url 'store_app:category' %}" role="button">Tops</a>
+            <a class="btn btn-light btn-lg" href="{% url 'store_app:category' %}" role="button">Bottoms</a>
+            <a class="btn btn-light btn-lg" href="{% url 'store_app:category' %}" role="button">Jackets</a>
+            <a class="btn btn-light btn-lg" href="{% url 'store_app:category' %}" role="button">Accessories</a>
+            
+        </div>
+    </div>
+    <!--All Products View-->
+    <br>
+      <div class="container">
+        <div class="row">
+            {% for item in product_item %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        {% if item.image_url %}
+                            <img 
+                                src="{{ item.image.url }}" 
+                                class="card-img-top" 
+                                alt="{{ item.name }}"
+                            >
+                        {% endif %}
+                        <div class="card-body">
+                            <h6 class="card-title">
+                                <a href="#">{{ item.name }}</a></h6>  <!-- set link to product_detail page(with product_id)-->
+                            <p class="card-text">{{ item.description }}</p>
+                            <p class="card-text"><strong>Price:</strong> {{ item.price }}</p>
+                            <form 
+                                action="{% url 'cart_app:cart_add' item.id %}" 
+                                method="post">
+                                    {% csrf_token %}
+                                <button class="btn btn-primary" type="submit">Add</button>
+                            </form>
+                            <!-- can include more fields here if necessary -->
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                    </div><div class="row">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   <!-- <div>
+        {% if product_item %}
+            {% for item in product_item %}
+                <ol>
+                    <b>Prouct Info</b>
+                    <ul>
+                        <li><h5>Product Name: {{ item.name}}<h5></li>
+                        <li><h5>Category: {{ item.category}}<h5></li>
+                        <li><h5>Description: {{ item.description}}<h5></li>
+                        <li><h5>Price: {{ item.price}}</h5></li>
+                        <li><img src=" {{ item.image.url }}" width="150" height="150" alt="{{ item.name }}"></li>  
+                    </ul>
+                </ol>
+                                   
+            {% endfor %}
+        {% else %}
+            <p>No Product Found!</p>
+        {% endif %}
+    </div> -->
+
+{% endblock %}
