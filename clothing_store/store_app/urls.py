@@ -11,5 +11,6 @@ urlpatterns = [
     path('product/', views.product, name='product'),
     path('return_policy/', views.return_policy, name='return_policy'),
     path('contact_us/', views.contact_us, name='contact_us'),
-    path('customer_service/', views.customer_service, name='customer_service')
+    path('customer_service/', views.customer_service, name='customer_service'),
+    path('product_details/<int:product_id>/', views.product_details, name='product_details')
 ]
