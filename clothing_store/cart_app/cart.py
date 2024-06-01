@@ -1,4 +1,4 @@
-from store_app.models import Product
+from store_app.models import Product, ProductImages
 from decimal import *
 from django.conf import settings
 
@@ -39,7 +39,8 @@ class Cart(object):
         cart = self.cart.copy()
         for product in products:
             cart[str(product.id)]['product'] = product
-
+            cart[str(product.id)]['image'] = product.images.first().image.url if product.images.exists() else None
+        #add Product stock check
         #return structure containing product id and the other properties (Price,total_price and quantity.)
         for item in cart.values():
             item['price'] = Decimal(item['price'])
@@ -56,7 +57,7 @@ class Cart(object):
                 in self.cart.values())
     
     #Remove all items from the cart.
-    def clear(self):
+    def clear_all(self):
         # Use list() to create a copy of keys
         for key in list(self.cart.keys()):  
             del self.cart[key]

@@ -1,76 +1,111 @@
 {% extends 'base.html' %} 
+{% load static %}
+
 {% block title %}Cart{% endblock %} 
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/cart/cart.css' %}">
+{% endblock %}
 {% block content %}
+{% if user.is_authenticated %}
 <div class="container">
   <div class="col-md-12 text-end mt-2">
     <a href="{% url 'checkout_app:order_history' %}" class="btn btn-secondary">Order History</a>
   </div>
 </div>
-<section class="container text-center">
-  <span class="row"
-    ><a href="{% url 'index' %}">G2fashion.com/</a>
-    <p class="keyword-link">Cart</p>
-    <p></p
-  ></span>
-  <p>Deliver is free above 500kr</p>
-  <div>
-    <p>Your cart is empty now.</p>
-    <a href="">Check our new collections!</a>
+{% endif %}
+<section class="cart-container">
+
+  <div class="current-link-container">
+    <p class="cart-highlight"><a href="{% url 'index' %}" class="link-to-page">G2fashion.com/</a>Cart</p>
+    <p class="text-highlight">Deliver is free above 500kr</p>
   </div>
-  <div class="container row">
-    <div class="left-container container col">
-      <p>Do you want to save or access the items in your cart?</p>
-      <span class="container row">
-        <a href="{% url 'login' %}" class="col">Login</a>
-        <p class="col">or</p>
-        <a class="col" href="{% url 'index' %}">Continue Shopping</a>
-      </span>
-      <div>
-        {% for item in cart %}
-        <p>Product Id: ({{ item.product.id }})</p>
-        <p>Price: {{ item.price }} SEK</p>
-        <p>Quantity: {{ item.quantity }}</p>
-        <p>Total price: {{ item.total_price }}</p>
-        <form
-          action="{% url 'cart_app:cart_add' item.product.id %}"
-          method="post"
-        >
-          {% csrf_token %}
-          <button type="submit">Add</button>
-        </form>
-        <form
-          action="{% url 'cart_app:cart_remove' item.product.id %}"
-          method="post"
-        >
-          {% csrf_token %}
-          <button type="submit">Remove</button>
-        </form>
-        {% endfor %}
-      </div>
-    </div>
-    <div class="right-container container col">
+  <div class="lower-cart-container">
+    <div class="left-container">
       {% if user.is_authenticated %}
-      <p>Welcome </p>
-      <p>Always keep on logged in to check your personal deals and cart</p>
+      <div class="left-container-content">
+        <div class="product-card-title-left">
+          <h4>Your items</h4>
+          <a href="{% url 'index' %}">Continue Shopping</a>
+        </div>
+        <div class="container card-container">
+          {% for item in cart %}
+          <div class="product-card">
+            <div class="product-card-left">
+              {% if item.image %}
+              <img src="{{ item.image }}" alt="Image of {{ item.product.name }}">
+              {% else %}
+              <p class="no-img-card">No image available</p>
+              {% endif %}
+            </div>
+            <div class="product-card-right">
+              <p>Product: {{ item.product.name }} | ID: {{ item.product.id }} | Price {{ item.price }} SEK</p>
+              <span>
+                <p>Quantity:</p>
+                <form
+                  id="remove-form-{{ item.product.id }}" 
+                  action="{% url 'cart_app:cart_remove' item.product.id %}" 
+                  method="post" 
+                  style="display: inline;">
+                    {% csrf_token %}
+                    <a href="#" onclick="document.getElementById('remove-form-{{ item.product.id }}').submit(); return false;" class="btn btn-secondary btn-sm">-</a>
+                </form>
+                <p class="cart-quantity-counter"> {{ item.quantity }} </p>
+                <form 
+                  id="add-form-{{ item.product.id }}" 
+                  action="{% url 'cart_app:cart_add' item.product.id %}" 
+                  method="post" 
+                  style="display: inline;">
+                    {% csrf_token %}
+                    <a href="#" onclick="document.getElementById('add-form-{{ item.product.id }}').submit(); return false;" class="btn btn-secondary btn-sm">+</a>
+                </form>
+                <p>Total price: {{ item.total_price }}</p>
+                <hr/>
+              </span>
+            </div>
+          </div>
+          {% empty %}
+          <h3 class="empty-cart">Your cart is empty now.</h3>
+          <p>Check our new collections!</p>
+          {% endfor %}
+        </div>
+      </div>
       {% else %}
-      <a href="{% url 'login' %}">Login</a>
-      <p>Log in to check your personal deals and cart</p>
-      {% endif %}
-      <hr />
-      <div>
-        <span class="container row">
-          <p class="col">Total Sum</p>
-          <!-- Update total sum below -->
-          <p class="col">{{ cart.get_sub_total_price }} kr</p>
+      <div class="left-container-content">
+        <p>Do you want to save or access the items in your cart?</p>
+        <span class="container">
+          <p><a href="{% url 'login' %}" class="">Login</a> or <a class="col" href="{% url 'index' %}">Continue Shopping</a></p>
         </span>
-        <div>
+        <p>You don't have an account with us yet? <a href="{% url 'register' %}">Sign up</a></p>
+      </div>
+      {% endif %}
+      
+    </div>
+    <div class="right-container text-center">
+      <div class="container text-center">
+        {% if user.is_authenticated %}
+          <p>Welcome, {{ first_name }}!</p>
+          <p>Always keep on logged in to check your personal deals and cart</p>
+          {% else %}
+          <a href="{% url 'login' %}" class="btn login-btn">Login</a>
+          <p>Log in to check your personal deals and cart</p>
+        {% endif %}
+      </div>
+      <div class="container">
+        <hr/>
+        <table class="table text-center">
+          <tr>
+            <td class="col">Subtotal</td>
+            <td class="col">{{ cart.get_sub_total_price }} kr</td>
+          </tr>
+        </table>
+      </div>
+      <div class="container">
         {% if user.is_authenticated %}
             <a href="{% url 'checkout_app:checkout' %}">Continue to checkout</a>
         {% else %}
             <a href="{% url 'login' %}?next={% url 'checkout_app:checkout' %}">Login to proceed to checkout</a>
         {% endif %}
-        </div>
-        <!-- add image icon - bag -->
       </div>
     </div>
   </div>
