@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from user_app.forms import UserForm, UserProfileInfoForm
+from user_app.forms import UserForm, UserProfileInfoForm, AddressForm
 
 from django.contrib.auth import authenticate, logout as auth_logout, login as auth_login
 from django.http import HttpResponseRedirect, HttpResponse
@@ -23,8 +23,9 @@ def register(request):
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
         profile_form = UserProfileInfoForm(data=request.POST)
+        address_form = AddressForm(data=request.POST)
 
-        if user_form.is_valid() and profile_form.is_valid():
+        if user_form.is_valid() and profile_form.is_valid() and address_form.is_valid():
             user = user_form.save()
             user.set_password(user.password)
             user.save()
@@ -37,18 +38,24 @@ def register(request):
 
             profile.save()
 
+            address = address_form.save()
+            address.user = user
+            address.save()
+
             registered = True
             if registered:
                 print("registered user: " + user.username)
         else:
-            print(user_form.errors, profile_form.errors)
+            print(user_form.errors, profile_form.errors, address_form.errors)
     else:
         user_form = UserForm()
         profile_form = UserProfileInfoForm()
+        address_form = AddressForm()
 
     return render(request, 'register.html',
                           {'user_form': user_form,
                            'profile_form': profile_form,
+                           'address_form': address_form,
                            'registered': registered})
 
 def login(request):
