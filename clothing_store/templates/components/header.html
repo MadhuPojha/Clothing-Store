@@ -63,10 +63,10 @@
     >
       <i class="bi bi-cart icon-white"></i>
     </a>
-    {% if cart_item_count != 0 %}
-    <p>Cart: {{ cart_item_count }}</p>
+    {% if cart_item_count == 0 %}
+      <div><div>
     {% else %}
-    <div></div>
+      <p>Cart: ({{ cart_item_count }})</p>
     {% endif %}
   </nav>
 </div>
