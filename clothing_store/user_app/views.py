@@ -38,7 +38,7 @@ def register(request):
 
             profile.save()
 
-            address = address_form.save()
+            address = address_form.save(commit=False)
             address.user = user
             address.save()
 
