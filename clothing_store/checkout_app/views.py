@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from cart_app.cart import Cart
 from decimal import Decimal
+from .models import Order
 
 @login_required
 def checkout(request):
@@ -35,4 +36,8 @@ def order_summary(request):
         # Handle billing form submission
         pass
     return render(request, 'order_summary.html')
-# Create your views here.
+
+@login_required
+def order_history(request):
+    orders = Order.objects.filter(user=request.user).order_by('-order_date')
+    return render(request, 'order_history.html', {'orders': orders})
