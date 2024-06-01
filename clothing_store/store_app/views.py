@@ -34,6 +34,18 @@ def product_details(request, product_id):
     }
     return render(request, 'product_details.html', {'product': product})
 
+def product_details(request, product_id):
+    product_detail = get_object_or_404(Product, id=product_id)
+    product_stock = Product_Stock.objects.filter(product=product_detail)
+    product_img = ProductImages.objects.filter(product=product_detail)
+
+    product = {
+        'product_detail': product_detail,
+        'product_stock': product_stock,
+        'product_img': product_img
+    }
+    return render(request, 'product_details.html', {'product': product})
+
 def order_confirmation(request):
     return render(request, 'order_confirmation.html', {'order_confirmation': order_confirmation})
 
