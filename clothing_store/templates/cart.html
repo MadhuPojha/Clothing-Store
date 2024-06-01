@@ -69,6 +69,14 @@
           <p>Check our new collections!</p>
           {% endfor %}
         </div>
+        {% if cart %}
+        <div>
+            <form action="{% url 'cart_app:clear_cart' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Empty your cart</button>
+            </form>
+        </div>
+        {% endif %}
       </div>
       {% else %}
       <div class="left-container-content">
