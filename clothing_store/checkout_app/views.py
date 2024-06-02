@@ -30,6 +30,7 @@ def checkout(request):
     }
     return render(request, 'checkout.html', context)
 
+# ATM not functioning 
 @login_required
 def payment(request):
     if request.method == "POST":
