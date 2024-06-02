@@ -34,25 +34,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'register' %}">Register</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Categories
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Dresses</a></li>
-              <li><a class="dropdown-item" href="#">Tops</a></li>
-              <li><a class="dropdown-item" href="#">Bottoms</a></li>
-              <li><a class="dropdown-item" href="#">Accessories</a></li>
-            </ul>
-          </li>
+          </li> 
         </ul>
       </div>
       <div class="col-md-4 text-end">
@@ -81,12 +63,17 @@
     >
       <i class="bi bi-cart icon-white"></i>
     </a>
-    {% if cart_item_count != 0 %}
-    <p>Cart: {{ cart_item_count }}</p>
+    {% if cart_item_count == 0 %}
+      <div><div>
     {% else %}
-    <div></div>
+      <p>Cart: ({{ cart_item_count }})</p>
     {% endif %}
   </nav>
 </div>
 
-<div class="container">{% include "components/searchbar.html" %}</div>
+<div class="container">
+  <div class="row">
+    {% include "components/categories_button.html" %}
+    {% include "components/searchbar.html" %}
+  </div>
+</div>

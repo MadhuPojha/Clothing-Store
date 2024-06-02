@@ -11,6 +11,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -18,13 +19,17 @@
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
       rel="stylesheet"
-    /> 
+    />
     {% load static %}
+    
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    {% block extra_css %}
+    {% endblock %}
+    {% include "components/header.html" %}
   </head>
 
   <body>
-    {% include "components/header.html" %} {% load static %}
+
     <div class="container">{% block content %}{% endblock %}</div>
     <div class="container">{% include "components/footer.html" %}</div>
     <script
@@ -37,5 +42,10 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script 
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    ></script>
+
   </body>
+
 </html>
