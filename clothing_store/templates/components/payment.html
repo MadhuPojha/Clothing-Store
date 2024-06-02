@@ -32,10 +32,9 @@
                       <div>
                         <div class="card-details">
                           <div class="input-wrapper">
-                            <form action="{% url 'checkout_app:payment' %}" method="POST" enctype="multipart/form-data">
+                            <form method="POST" enctype="multipart/form-data">
                               {% csrf_token %}
                               {{ payment_form.as_p }}
-                              {% include "components/payment_static_fields.html" %}
                             </form>
                           </div>
                         </div>
