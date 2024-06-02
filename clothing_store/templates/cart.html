@@ -33,7 +33,9 @@
           <div class="product-card">
             <div class="product-card-left">
               {% if item.image %}
-              <img src="{{ item.image }}" alt="Image of {{ item.product.name }}">
+              <div class='image-container'>
+                <img src="{{ item.image }}" alt="Image of {{ item.product.name }}">
+              </div>
               {% else %}
               <p class="no-img-card">No image available</p>
               {% endif %}
@@ -59,7 +61,7 @@
                     {% csrf_token %}
                     <a href="#" onclick="document.getElementById('add-form-{{ item.product.id }}').submit(); return false;" class="btn btn-secondary btn-sm">+</a>
                 </form>
-                <p>Total price: {{ item.total_price }}</p>
+                <p class='card-price'>Total price: {{ item.total_price }} SEK</p>
                 <hr/>
               </span>
             </div>
@@ -73,7 +75,7 @@
         <div>
             <form action="{% url 'cart_app:clear_cart' %}" method="post" style="display:inline;">
                 {% csrf_token %}
-                <button type="submit">Empty your cart</button>
+                <button type="submit" class='btn btn-danger empty-cart'>Remove all</button>
             </form>
         </div>
         {% endif %}

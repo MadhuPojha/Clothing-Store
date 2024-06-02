@@ -1,0 +1,9 @@
+.cat-container{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-cat{
+    font-weight: 600;
+}
