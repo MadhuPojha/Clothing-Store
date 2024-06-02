@@ -19,6 +19,9 @@ def checkout(request):
     else:
         delivery_cost = Decimal('0.00')
     order_total = sub_total_with_tax + delivery_cost
+
+    payment_form, payment_errors = payment_context(request)
+
     context = {
         'cart': cart,
         'sub_total_price': sub_total_price,
@@ -26,27 +29,27 @@ def checkout(request):
         'tax_percentage': tax_percentage * 100,
         'tax_amount': tax_amount,
         'delivery_cost': delivery_cost,
-        'order_total': order_total
+        'order_total': order_total,
+        'payment_form': payment_form,
+        'payment_errors': payment_errors
     }
     return render(request, 'checkout.html', context)
 
 @login_required
-def payment(request):
+def payment_context(request):
     if request.method == "POST":
         payment_form = UserPaymentInfoForm(data=request.POST)
-
         if payment_form.is_valid():
             payment_info = payment_form.save(commit=False)
             payment_info.user = request.user
             payment_info.save()
-
+            return payment_form, None
         else:
             print(payment_form.errors)
+            return payment_form, payment_form.errors
     else:
         payment_form = UserPaymentInfoForm()
-
-    return render(request, 'payment.html', 
-                  {'payment_form': payment_form})
+        return payment_form, None
 
 @login_required
 def order_summary(request):
