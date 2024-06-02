@@ -35,3 +35,19 @@ class UserPaymentInfo(models.Model):
     def __str__(self):
         return self.user.username
 
+class UserShippingInfo(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username
+    
+class UserBillingInfo(models.Model):
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username
