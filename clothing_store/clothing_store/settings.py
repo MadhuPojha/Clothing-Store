@@ -153,3 +153,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Media files
 MEDIA_URL = '/media/'
 CART_SESSION_ID = 'cart'
+
+# Product Import folder
+IMPORT_FOLDER = 'product_data/import/'
+IMPORT_IMAGES = 'images/'
