@@ -54,7 +54,10 @@
     </tr>
 </table>
 
-<h2>Billing Information</h2>
+<h2>Payment</h2>
+<div>
+  {% include "components/payment.html" %}
+</div>
 
 <a href="{% url 'cart_app:cart_detail' %}">Go back to cart</a>
 <form action="{% url 'checkout_app:order_summary' %}" method="post">

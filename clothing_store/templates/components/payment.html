@@ -1,0 +1,108 @@
+<section aria-label="Payment" class="payment-section">
+    <div>
+      <div>
+        <div class="payment-header">
+          <div class="payment-title">
+            <p>All transactions are secure and encrypted.</p>
+          </div>
+        </div>
+        <div class="payment-methods">
+          <div class="payment-methods-inner">
+            <div>
+              <fieldset id="basic">
+                <legend>Choose a payment method</legend>
+                <div class="payment-method-options">
+                  <div class="payment-option">
+                    <label for="basic-creditCards">
+                      <div class="radio-button">
+                        <input type="radio" id="basic-creditCards" name="basic">
+                      </div>
+                      <div class="payment-option-details">
+                        <span>Credit card</span>
+                        <div class="card-icons">
+                          <img alt="VISA" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/0169695890db3db16bfe.svg" width="38" height="24">
+                          <img alt="MAESTRO" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/37fc65d0d7ac30da3b0c.svg" width="38" height="24">
+                          <img alt="MASTERCARD" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/ae9ceec48b1dc489596c.svg" width="38" height="24">
+                          <img alt="AMEX" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/f11b90c2972f3811f2d5.svg" width="38" height="24">
+                          <img alt="UNIONPAY" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/bddb21e40274706727fb.svg" width="38" height="24">
+                        </div>
+                      </div>
+                    </label>
+                    <div id="basic-creditCards-collapsible" class="collapsible-content">
+                      <div>
+                        <div class="card-details">
+                          <div class="input-wrapper">
+                            <form action="{% url 'checkout_app:payment' %}" method="POST" enctype="multipart/form-data">
+                              {% csrf_token %}
+                              {{ payment_form.as_p }}
+                              {% include "components/payment_static_fields.html" %}
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="payment-option">
+                    <label for="basic-KLARNA_PAY_NOW">
+                      <div class="radio-button">
+                        <input type="radio" id="basic-KLARNA_PAY_NOW" name="basic">
+                      </div>
+                      <div class="payment-option-details">
+                        <span>Pay now with Klarna</span>
+                        <div class="card-icons">
+                          <img alt="KLARNA PAY NOW" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/382755ce27a1c7421603.svg" width="38" height="24">
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="payment-option">
+                    <label for="basic-Nets Easy Checkout">
+                      <div class="radio-button">
+                        <input type="radio" id="basic-Nets Easy Checkout" name="basic">
+                      </div>
+                      <div class="payment-option-details">
+                        <span>Nets Easy Checkout</span>
+                        <div class="card-icons">
+                          <img alt="visa" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/0169695890db3db16bfe.svg" width="38" height="24">
+                          <img alt="master" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/5e3b05b68f3d31b87e84.svg" width="38" height="24">
+                          <img alt="vipps" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/87c39e7f48e294bc5f45.svg" width="38" height="24">
+                          <img alt="swish" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/58d2ffcf06e7cdcf926d.svg" width="38" height="24">
+                          <button type="button" aria-pressed="false" class="show-more">+8</button>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="payment-option">
+                    <label for="basic-customManualPayment">
+                      <div class="radio-button">
+                        <input type="radio" id="basic-customManualPayment" name="basic">
+                      </div>
+                      <div class="payment-option-details">
+                        <span>Faktura</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div class="remember-me-section">
+          <h2>Remember me</h2>
+          <div id="RememberMe">
+            <div class="remember-me-option">
+              <label for="RememberMe-RememberMeCheckbox">
+                <div class="checkbox">
+                  <input type="checkbox" id="RememberMe-RememberMeCheckbox" name="RememberMe">
+                </div>
+                <span>Save my information for a faster checkout</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="pay-now-button">
+          <button id="checkout-pay-button" type="submit" class="pay-now">Pay now</button>
+        </div>
+      </div>
+    </div>
+  </section>

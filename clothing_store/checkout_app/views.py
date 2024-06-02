@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from cart_app.cart import Cart
+from user_app.forms import UserPaymentInfoForm
 from decimal import Decimal
 from .models import Order
 
@@ -28,6 +29,24 @@ def checkout(request):
         'order_total': order_total
     }
     return render(request, 'checkout.html', context)
+
+@login_required
+def payment(request):
+    if request.method == "POST":
+        payment_form = UserPaymentInfoForm(data=request.POST)
+
+        if payment_form.is_valid():
+            payment_info = payment_form.save(commit=False)
+            payment_info.user = request.user
+            payment_info.save()
+
+        else:
+            print(payment_form.errors)
+    else:
+        payment_form = UserPaymentInfoForm()
+
+    return render(request, 'payment.html', 
+                  {'payment_form': payment_form})
 
 @login_required
 def order_summary(request):
