@@ -1,9 +1,11 @@
-<div class="container mt-4 ">
-    <div class="btn-group ">
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/category-bar.css' %}">
+{% endblock %}
+<div class="container mt-4">
+    <div class="cat-container">
         {% for category in categories %}
-            <div class="col-md-5 mr-10">
-                <a href="{% url 'store_app:filter_items' category.id %}" class="btn btn-light btn-block" alt="Button for categories" style="padding: 10px;">{{ category.name }}</a>
-            </div>
+        <a href="{% url 'store_app:filter_items' category.id %}" class="btn btn-light btn-cat" alt="Button for categories">{{ category.name }}</a>
         {% endfor %}
     </div>
 </div>
