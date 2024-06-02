@@ -56,6 +56,6 @@ class Command(BaseCommand):
 
             else:
                 fail_list.append(f'{GUID} is missing an image and was not imported.')
-
+                
         for entry in fail_list:
             print(entry)
