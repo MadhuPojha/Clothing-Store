@@ -1,0 +1,28 @@
+<!-- templates/order_history.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 custom-paragraph">Order History</h2>
+    {% if orders %}
+        <div class="row">
+        {% for order in orders %}
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Order ID: {{ order.id }}</h5>
+                        <h6 class="card-subtitle mb-2">Date: {{ order.order_date }}</h6>
+                        <p class="card-text">
+                            <strong>Status:</strong> {{ order.status }}<br>
+                            <strong>Details:</strong> {{ order.order_details }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        <p class="alert alert-info">You have no orders.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,10 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from store_app.models import Product, Product_Stock, Category
+from store_app.models import Product, Product_Stock, Category, ProductImages
 from datetime import datetime
 from cart_app.cart import Cart
 from django.urls import reverse
-
-# Create your views here.
 
 def home(request):
     current_year = datetime.now().year
@@ -22,7 +20,6 @@ def product(request):
     #products = Product.objects.all().order_by(ordering)
     return render(request,'product.html',context=product_dict)   # 'store_app/product.html'	
 
-
 def product_stock(request):
     product_stock = Product_Stock.objects.all()
     return render(request, 'product_stock.html', {'product_stock': product_stock})	# 'store_app/product_stock.html'
@@ -30,6 +27,30 @@ def product_stock(request):
 def category(request):
     category = Category.objects.all()
     return render(request, 'category.html', {'category': category})
+
+def product_details(request, product_id):
+    product_detail = get_object_or_404(Product, id=product_id)
+    product_stock = Product_Stock.objects.filter(product=product_detail)
+    product_img = ProductImages.objects.filter(product=product_detail)
+
+    product = {
+        'product_detail': product_detail,
+        'product_stock': product_stock,
+        'product_img': product_img
+    }
+    return render(request, 'product_details.html', {'product': product})
+
+def product_details(request, product_id):
+    product_detail = get_object_or_404(Product, id=product_id)
+    product_stock = Product_Stock.objects.filter(product=product_detail)
+    product_img = ProductImages.objects.filter(product=product_detail)
+
+    product = {
+        'product_detail': product_detail,
+        'product_stock': product_stock,
+        'product_img': product_img
+    }
+    return render(request, 'product_details.html', {'product': product})
 
 def order_confirmation(request):
     return render(request, 'order_confirmation.html', {'order_confirmation': order_confirmation})
