@@ -26,8 +26,13 @@
                                     {% csrf_token %}
                                     {{ user_form.as_p }}
                                     {{ profile_form.as_p }}
+                                    {{ address_form.as_p }}
                                     <input type="submit" class="btn btn-outline-light btn-lg px-5" value="Register">
                                 </form>
+                            </div>
+                            <div>
+                                <p class="mb-0">Do you have an account? <a href="{% url 'login' %}" class="text-white-50 fw-bold">Login</a>
+                                </p>
                             </div>
                         </div>
                     </div>
