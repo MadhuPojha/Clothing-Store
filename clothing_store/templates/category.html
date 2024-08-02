@@ -6,7 +6,10 @@
 <div class="container ">
     <div class="row">
         <div class="col-md-8 offset-md-1">
-            <h3 class="custom-paragraph">Find here your new {{ category.name }}</h3>
+            {% if item.name %}
+                <h3 class="custom-paragraph">Find here your new {{ category.name }}</h3>
+            
+            {% endif %}
         </div>
     </div>
 </div><br>
@@ -17,7 +20,7 @@
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <a href="#">{{ item.name }}</a></h6>  <!-- set link to product_detail page(with product_id)-->
+                            <a href="{% url 'store_app:product_details' product_id=item.id %}">{{ item.name }}</a></h6>  <!-- set link to product_detail page(with product_id)-->
                             <p class="card-text">{{ item.description }}</p>
                             <p class="card-text"><strong>Price:</strong> {{ item.price }}</p>
                             <form 

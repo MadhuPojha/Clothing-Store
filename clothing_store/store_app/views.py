@@ -61,6 +61,9 @@ def return_policy(request):
 def contact_us(request):
     return render(request, 'contact_us.html', {'contact_us': contact_us})
 
+def about(request):
+    return render(request, 'about.html', {'about': about})
+
 def customer_service(request):
     return render(request, 'customer_service.html', {'customer_service': customer_service})
 

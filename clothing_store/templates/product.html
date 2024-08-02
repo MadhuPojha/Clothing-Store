@@ -13,13 +13,14 @@
             <div class="card-body">
 
                 <img style = "height: 170px; width: 100%;"class = "card-img-top" src="{%static 'images/dress3.avif' %}"  class="rounded mx-auto d-block"   alt="dress">
+                <!--
                 <img 
                     style = "height: 150px; width: 100%;"
                     class = "card-img-top" 
                     src="{%static 'images/dress3.avif' %}"  
                     class="rounded mx-auto d-block"   
                     alt="dress">
-
+                  -->
             </div>
             <div class="col-md-6">
                 <p class = "card-img-overlay"><b>Summer Sale!</b> <br>Upto 30% discount on selected items <br>GET,SET,READY </p>
@@ -31,13 +32,14 @@
             <div class="card-body">
 
                 <img style = "height: 170px; width: 100%;"class = "card-img-top" src="{%static 'images/dress5.png' %}"  class="rounded mx-auto d-block"   alt="dress">
+                <!--
                 <img 
                     style = "height: 150px; width: 100%;"
                     class = "card-img-top" 
                     src="{%static 'images/dress5.png' %}" 
                     class="rounded mx-auto d-block" 
                     alt="dress">
-
+                -->
             </div>
             <div class="col-md-6">
                 <p class = "card-img-overlay"><b>Time to Explor our Collection</b><br>NEW SEASON, NEW MOOD <br>NEW YOU! </p>
@@ -62,14 +64,25 @@
             {% for item in product_item %}
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        {% if item.image_url %}
-                            <img 
-                                src="{{ item.image.url }}" 
-                                class="card-img-top" 
-                                alt="{{ item.name }}"
-                            >
-                        {% endif %}
+                     
+
                         <div class="card-body">
+
+
+                          {% if product.product_img %}
+                
+                            {% for img in product.product_img %}
+                                <img 
+                                    src="{{ img.image.url }}" 
+                                    alt="" 
+                                    class="cover-image img-thumbnail" 
+                                    > 
+                            {% endfor %}
+                          {% else %}
+                              <p>Image not found.</p> 
+                          {% endif %}
+
+                          
                             <h6 class="card-title">
                                 <a href="{% url 'store_app:product_details' product_id=item.id %}">{{ item.name }}</a></h6>
                             <p class="card-text">{{ item.description }}</p>
